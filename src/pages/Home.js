@@ -12,26 +12,29 @@ function Home() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="home">
         <h1 className="dNotes m-3">Notes</h1>
-        <div className="displayAll">
-          <Droppable droppableId="root">
-            {(provided) => (
-              <div ref={provided.innerRef} {...provided.droppableProps}>
-                {notes.map((item, index) => {
-                  return (
-                    <Row
-                      note={item}
-                      key={index}
-                      id={index}
-                      handDelete={handDelete}
-                    />
-                  );
-                })}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </div>
-
+        {!notes.length ? (
+          ""
+        ) : (
+          <div className="displayAll">
+            <Droppable droppableId="root">
+              {(provided) => (
+                <div ref={provided.innerRef} {...provided.droppableProps}>
+                  {notes.map((item, index) => {
+                    return (
+                      <Row
+                        note={item}
+                        key={index}
+                        id={index}
+                        handDelete={handDelete}
+                      />
+                    );
+                  })}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </div>
+        )}
         <AwesomeButton type="secondary">
           <Link to="/addNote">Add Note</Link>
         </AwesomeButton>
