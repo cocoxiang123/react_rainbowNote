@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Draggable } from "react-beautiful-dnd";
 
 function Row({ note, id, handDelete }) {
