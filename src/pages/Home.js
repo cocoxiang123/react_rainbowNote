@@ -12,7 +12,7 @@ function Home() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="home">
         <h1 className="dNotes m-3">Notes</h1>
-        {!notes.length ? (
+        {!notes ? (
           ""
         ) : (
           <div className="displayAll">
